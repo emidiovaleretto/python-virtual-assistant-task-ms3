@@ -12,5 +12,13 @@ def choose_name_randomly():
     return choice(list_names)
 
 
+def greetings(name):
+    """
+    Returns a greeting to user.
+    """
+    return f"Hello, this is {name}. It's nice to speak with you." \
+             "\nMay I please have your name?"
+
+
 chosen_name = choose_name_randomly()
-print(f'Hello, {chosen_name}!')
+print(greetings(chosen_name))
