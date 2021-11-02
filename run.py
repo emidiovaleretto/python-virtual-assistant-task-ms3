@@ -69,6 +69,14 @@ def add_new_task(task):
     return chatboot_message(f"\nTask added!\n")
 
 
+def view_all_tasks():
+    """
+    Prints a list of tasks.
+    """
+    for i, task in enumerate(task_list):
+        print(f"{i} - {task}")
+
+
 def main():
     """
     Run all program functions.
@@ -91,6 +99,7 @@ def main():
                 chatboot_message("\nSure thing! What task would you like to add?\n")
                 task = input("\n>> ")
                 add_new_task(task)
+
             else:
                 chatboot_message("\nOption not available yet.\n")
                 break
