@@ -20,5 +20,12 @@ def greetings(name):
              "\nMay I please have your name?"
 
 
-chosen_name = choose_name_randomly()
-print(greetings(chosen_name))
+def main():
+    """
+    Run all program functions.
+    """
+    chosen_name = choose_name_randomly()
+    print(greetings(chosen_name))
+
+
+main()
