@@ -58,6 +58,17 @@ def print_menu():
     )
 
 
+def add_new_task(task):
+    """
+    Adds a new task to the list.
+    """
+    task_list.append(task)
+    chatboot_message(f"\nGreat! Let's add [{task.upper()}] to your list.\n")
+    chatboot_message("Adding task...")
+    sleep(1)
+    return chatboot_message(f"\nTask added!\n")
+
+
 def main():
     """
     Run all program functions.
@@ -73,4 +84,5 @@ def main():
     )
 
 
+task_list = []
 main()
