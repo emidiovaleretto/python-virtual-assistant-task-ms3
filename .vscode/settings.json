@@ -22,9 +22,9 @@
    },
    "files.autoSave": "off",
    "workbench.colorTheme": "Visual Studio Dark",
-   "editor.defaultFormatter": "HookyQR.beautify",
+   "editor.defaultFormatter": null,
    "[python]": {
       "editor.defaultFormatter": "ms-python.python"
    },
-   "python.formatting.provider": "yapf"
+   "python.formatting.provider": "black"
 }
