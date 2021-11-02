@@ -77,11 +77,23 @@ def main():
     greetings(chosen_name)
     username = input("\n>> ")
     chatboot_message(f"\nRight, {username}! How may I assist you today?\n")
-    print_menu()
-    user_choice = input("\n>> ")
-    chatboot_message(
-        f"That's great! Your choice was: {user_choice}. let's get started!\n"
-    )
+
+    while True:
+        print_menu()
+        user_choice = input("\n>> ")
+
+        if not user_choice.isdigit():
+            chatboot_message("\nPlease enter a valid option.\n")
+        else:
+            user_choice = int(user_choice)
+
+            if user_choice == 1:
+                chatboot_message("\nSure thing! What task would you like to add?\n")
+                task = input("\n>> ")
+                add_new_task(task)
+            else:
+                chatboot_message("\nOption not available yet.\n")
+                break
 
 
 task_list = []
