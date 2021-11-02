@@ -10,7 +10,7 @@ def typing_effect(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        sleep(0.03)
+        sleep(0.02)
 
 
 def chatboot_message(text):
@@ -39,12 +39,13 @@ def choose_name_randomly():
     return choice(list_names)
 
 
-def greetings(name):
+def greetings():
     """
     Prints a greeting to the user.
     """
+    chosen_name = choose_name_randomly()
     chatboot_message(
-        f"Hello, my name is {name}. It's nice to speak with you."
+        f"Hello, my name is {chosen_name}. It's nice to speak with you."
         "\nMay I please have your name?"
     )
 
@@ -54,7 +55,7 @@ def print_menu():
     Prints the menu of options.
     """
     chatboot_message(
-        "\n[1] Add a new task\n[2] View all tasks\n[3] Delete a task\n[4] Exit\n"
+        "\n[1] Add a new task\n[2] View all tasks\n[3] Delete a task\n[4] Restore a deleted task\n[5] Exit"
     )
 
 
@@ -71,6 +72,25 @@ def add_new_task():
     chatboot_message(f"\nTask added!\n")
 
 
+def ask_to_add_task():
+    """
+    Asks the user if he/she wants to add a new task.
+    """
+    chatboot_message("\nWould you like to add a new task? [y/N]")
+    answer = input("\n>> ")[0].strip().lower()
+
+    if answer == "y":
+        add_new_task()
+
+    else:
+        chatboot_message(
+            "\nThank you so much for using our chat service. "
+            "\nWe hope we will hear from you soon! \nHave a good day.\n"
+        )
+        sleep(1)
+        sys.exit()
+
+
 def view_all_tasks():
     """
     Prints a list of tasks.
@@ -78,13 +98,22 @@ def view_all_tasks():
     if not task_list:
         sleep(1)
         chatboot_message("\nYour list is still empty.\n")
+        ask_to_add_task()
 
     else:
         chatboot_message(f"\nHere is your list of tasks:\n")
 
         for i, task in enumerate(task_list):
             i += 1
-            print(f"{i} - {task}")
+            print(f"\n\t{i} - {task}")
+            sleep(0.05)
+
+
+def view_removed_tasks():
+    """
+    Returns a list of removed tasks.
+    """
+    return removed_items
 
 
 def remove_task():
@@ -94,6 +123,7 @@ def remove_task():
     if not task_list:
         sleep(1)
         chatboot_message("\nThere is no tasks to be removed.\n")
+        ask_to_add_task()
 
     else:
         chatboot_message(f"\nWhich task would you like to delete?\n")
@@ -112,11 +142,10 @@ def main():
     """
     Run all program functions.
     """
-    chosen_name = choose_name_randomly()
-    greetings(chosen_name)
+    greetings()
     username = input("\n>> ")
     chatboot_message(
-        f"\Hi, {username}. Thank you for using our chat service.! \nHow may I assist you today?\n"
+        f"Hi, {username}. Thank you for using our chat service. \nHow may I assist you today?\n"
     )
 
     while True:
