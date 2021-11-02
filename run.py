@@ -74,6 +74,7 @@ def view_all_tasks():
     Prints a list of tasks.
     """
     for i, task in enumerate(task_list):
+        i += 1
         print(f"{i} - {task}")
 
 
@@ -96,10 +97,13 @@ def main():
             user_choice = int(user_choice)
 
             if user_choice == 1:
-                chatboot_message("\nSure thing! What task would you like to add?\n")
+                chatboot_message("\nWhat task would you like to add?\n")
                 task = input("\n>> ")
                 add_new_task(task)
 
+            elif user_choice == 2:
+                chatboot_message(f"\nHere is your list of tasks:\n")
+                view_all_tasks()
             else:
                 chatboot_message("\nOption not available yet.\n")
                 break
