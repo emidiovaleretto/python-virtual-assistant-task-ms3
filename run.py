@@ -116,8 +116,8 @@ def add_new_task():
     Adds a new task to the list.
     """
     chatboot_message("\nWhat task would you like to add?\n")
-    task = input("\n>> ")
-    task_list.append(task)
+    task = input("\n>> ").strip()
+    task_list.append(task.capitalize())
     chatboot_message(f"\nGreat! Let's add [{task.upper()}] to your list.\n")
     chatboot_message("Adding task...")
     sleep(1)
