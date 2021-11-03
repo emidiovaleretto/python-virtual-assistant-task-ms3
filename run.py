@@ -87,7 +87,7 @@ def ask_to_add_task():
         add_new_task()
 
     else:
-        pass
+        end_chat()
 
 
 def view_all_tasks():
@@ -143,7 +143,7 @@ def restore_task():
     """
     if not removed_items:
         sleep(1)
-        chatboot_message("\nThere are no tasks to be restored.\n")
+        chatboot_message("\nThere is no tasks to be restored.\n")
 
     else:
         chatboot_message(f"\nWhich task would you like to restore?\n")
@@ -158,6 +158,31 @@ def restore_task():
                 return chatboot_message(f"\nTask [{task}] restored!\n")
 
 
+def end_chat():
+    """
+    Prints a message to the user ending the conversation.
+    """
+    chatboot_message(
+        "\nI’m glad I was able to get that sorted out for you. "
+        "\nBefore you go, is there anything else I can assist you with today? [y/N]\n"
+    )
+
+    answer = input("\n>> ")[0].strip().lower()
+
+    if answer == "y":
+        chatboot_message(
+            "\nNot problem at all. \nI'm going to show you some options.\n"
+        )
+
+    else:
+        chatboot_message(
+            "\nThank you so much for using our chat service. "
+            "\nWe hope we will hear from you soon. \nHave a great day!\n"
+        )
+        sleep(1)
+        sys.exit()
+
+
 def main():
     """
     Run all program functions.
@@ -165,7 +190,7 @@ def main():
     greetings()
     username = input("\n>> ")
     chatboot_message(
-        f"Hi, {username}. Thank you for using our chat service. "
+        f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
 
@@ -175,6 +200,7 @@ def main():
 
         if not user_choice.isdigit():
             chatboot_message("\nPlease enter a valid option.\n")
+
         else:
             user_choice = int(user_choice)
 
@@ -191,8 +217,7 @@ def main():
                 restore_task()
 
             else:
-                chatboot_message("\nOption not available yet.\n")
-                break
+                end_chat()
 
 
 removed_items = []
