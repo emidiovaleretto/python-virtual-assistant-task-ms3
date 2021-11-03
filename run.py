@@ -50,6 +50,13 @@ def greetings():
     )
 
 
+def get_username():
+    """
+    Returns the username of the user.
+    """
+    return input("\n>> ")
+
+
 def print_menu():
     """
     Prints the menu of options.
@@ -69,18 +76,32 @@ def get_user_input():
     via the terminal, which must be a digit.
     The loop will continue to prompt the user until the data is valid.
     """
+            
+    user_choice = input("\n>> ")
+
+    is_valid_input = validate_input(user_choice)
+
+    if is_valid_input:
+        return int(user_choice)
+ 
     
-    while True:
-        print_menu()
-        user_choice = input("\n>> ")
+def validate_input(user_input):
+    """
+    Validates the user input.
+    Inside the try/except block, the user is prompted 
+    to enter the data type. Raises a ValueError if 
+    data type is not a digit.
+    """
 
-        is_valid_input = validate_input(user_choice)
+    try:
+        if not user_input.isdigit():
+            raise ValueError("You must enter a number")
 
-        if is_valid_input:
-            break
-
-    return user_choice
+    except ValueError as err:
+        chatboot_message(f'Invalid data type: {err}, please try again.')
+        return False
     
+    return True
 
 
 def add_new_task():
@@ -204,52 +225,36 @@ def view_removed_tasks():
     return removed_items
 
 
-def validate_input(user_input):
-    """
-    Validates the user input.
-    Inside the try/except block, the user is prompted 
-    to enter the data type. Raises a ValueError if 
-    data type is not a digit.
-    """
-
-    try:
-        if not user_input.isdigit():
-            raise ValueError("You must enter a number")
-
-    except ValueError as err:
-        chatboot_message(f'Invalid data type: {err}, please try again.')
-        return False
-
-    return True
-
-
 def main():
     """
     Run all program functions.
     """
     greetings()
-    username = input("\n>> ")
+    username = get_username()
     chatboot_message(
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
         
-    user_input = get_user_input()
+    while True:
 
-    match user_input:
-        case 1:
-            add_new_task()
-        case 2:
-            view_all_tasks()
-        case 3:
-            remove_task()
-        case 4:
-            restore_task()
-        case 5:
-            end_chat()
-        case _:
-            chatboot_message("\nPlease enter a valid option.\n")
-            
+        print_menu()
+        user_choice = get_user_input()
+
+        match user_choice:
+            case 1:
+                add_new_task()
+            case 2:
+                view_all_tasks()
+            case 3:
+                remove_task()
+            case 4:
+                restore_task()
+            case 5:
+                end_chat()
+            case _:
+                chatboot_message("\nPlease enter a valid option.\n")
+
 
 removed_items = []
 task_list = []
