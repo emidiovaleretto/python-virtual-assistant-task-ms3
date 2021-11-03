@@ -55,7 +55,11 @@ def print_menu():
     Prints the menu of options.
     """
     chatboot_message(
-        "\n[1] Add a new task\n[2] View all tasks\n[3] Delete a task\n[4] Restore a deleted task\n[5] Exit"
+        "\n[1] Add a new task"
+        "\n[2] View all tasks"
+        "\n[3] Delete a task"
+        "\n[4] Restore a deleted task"
+        "\n[5] Exit"
     )
 
 
@@ -83,12 +87,7 @@ def ask_to_add_task():
         add_new_task()
 
     else:
-        chatboot_message(
-            "\nThank you so much for using our chat service. "
-            "\nWe hope we will hear from you soon! \nHave a good day.\n"
-        )
-        sleep(1)
-        sys.exit()
+        pass
 
 
 def view_all_tasks():
@@ -105,7 +104,7 @@ def view_all_tasks():
 
         for i, task in enumerate(task_list):
             i += 1
-            print(f"\n\t{i} - {task}")
+            print(f"\n{i} - {task}")
             sleep(0.05)
 
 
@@ -138,6 +137,27 @@ def remove_task():
                 return chatboot_message(f"\nTask [{task}] removed!\n")
 
 
+def restore_task():
+    """
+    Restores a removed task.
+    """
+    if not removed_items:
+        sleep(1)
+        chatboot_message("\nThere are no tasks to be restored.\n")
+
+    else:
+        chatboot_message(f"\nWhich task would you like to restore?\n")
+        print(view_removed_tasks())
+        task_to_restore = int(input("\n>> "))
+
+        for i, task in enumerate(removed_items):
+            if task_to_restore == i + 1:
+                restored_task = removed_items.pop(i)
+                task_list.append(restored_task)
+                sleep(1)
+                return chatboot_message(f"\nTask [{task}] restored!\n")
+
+
 def main():
     """
     Run all program functions.
@@ -145,7 +165,8 @@ def main():
     greetings()
     username = input("\n>> ")
     chatboot_message(
-        f"Hi, {username}. Thank you for using our chat service. \nHow may I assist you today?\n"
+        f"Hi, {username}. Thank you for using our chat service. "
+        "\nHow may I assist you today?\n"
     )
 
     while True:
