@@ -187,6 +187,9 @@ def main():
             elif user_choice == 3:
                 remove_task()
 
+            elif user_choice == 4:
+                restore_task()
+
             else:
                 chatboot_message("\nOption not available yet.\n")
                 break
