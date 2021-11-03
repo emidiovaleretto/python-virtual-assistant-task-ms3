@@ -102,7 +102,7 @@ def validate_input(user_input):
         if user_input.isdigit():
             int(user_input)
         else:
-            raise ValueError(f"\n'{user_input}' is not a valid data type.")
+            raise ValueError(f"\n'{user_input}' is not a valid data type.\n")
 
     except ValueError as err:
         chatboot_message(f"{err}")
@@ -249,6 +249,7 @@ def main():
             add_new_task()
 
         elif user_choice == 2:
+            chatboot_message("\nHere is your list of tasks:\n")
             view_all_tasks(task_list)
 
         elif user_choice == 3:
