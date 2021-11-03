@@ -1,3 +1,4 @@
+import os
 import sys
 from random import choice
 from time import sleep
@@ -17,16 +18,16 @@ def chatboot_message(text):
     """
     Returns the chatboot message.
     """
-    return typing_effect(text)
+    return typing_effect(log(text))
 
 
 def choose_name_randomly():
     """
     Returns a random name from an external file called names.txt.
     """
-    with open("names.txt") as name_list:
-        names = [name for name in name_list.read().splitlines()]
-        return choice(names)
+    with open("names.txt", "r") as name_list:
+        name = [name for name in name_list.read().splitlines()]
+        return choice(name)
 
 
 def greetings():
@@ -112,6 +113,7 @@ def add_new_task():
     chatboot_message("Adding task...")
     sleep(1)
     chatboot_message(f"\nTask added!\n")
+    ask_to_add_task()
 
 
 def view_all_tasks(list):
@@ -178,7 +180,7 @@ def end_chat():
     Prints a message to the user ending the conversation.
     """
     chatboot_message(
-        "\nI’m glad I was able to get that sorted out for you. "
+        "\nI'm glad I was able to get that sorted out for you. "
         "\nBefore you go, is there anything else I can assist "
         "you with today? [y/N]"
     )
@@ -196,6 +198,7 @@ def end_chat():
             "\nWe hope we will hear from you soon. \nHave a great day!\n"
         )
         sleep(1)
+        os.remove("log.txt")
         sys.exit()
 
 
@@ -218,6 +221,17 @@ def view_removed_tasks():
     Returns a list of removed tasks.
     """
     return removed_items
+
+
+def log(message):
+    """
+    Logs the conversation and save to an external file.
+    """
+    path = "log.txt"
+
+    with open(path, "a", newline="") as log_file:
+        log_file.write(f"{message}\n")
+        return message
 
 
 def main():
