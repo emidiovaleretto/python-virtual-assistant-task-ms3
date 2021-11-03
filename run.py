@@ -10,7 +10,7 @@ def typing_effect(text):
     for char in text:
         sys.stdout.write(char)
         sys.stdout.flush()
-        sleep(0.02)
+        sleep(0.05)
 
 
 def chatboot_message(text):
