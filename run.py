@@ -204,21 +204,19 @@ def main():
         else:
             user_choice = int(user_choice)
 
-            if user_choice == 1:
-                add_new_task()
-
-            elif user_choice == 2:
-                view_all_tasks()
-
-            elif user_choice == 3:
-                remove_task()
-
-            elif user_choice == 4:
-                restore_task()
-
-            else:
-                end_chat()
-
+            match user_choice:
+                case 1:
+                    add_new_task()
+                case 2:
+                    view_all_tasks()
+                case 3:
+                    remove_task()
+                case 4:
+                    restore_task()
+                case 5:
+                    end_chat()
+                case _:
+                    chatboot_message("\nPlease enter a valid option.\n")
 
 removed_items = []
 task_list = []
