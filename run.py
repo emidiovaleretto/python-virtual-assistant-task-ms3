@@ -22,21 +22,11 @@ def chatboot_message(text):
 
 def choose_name_randomly():
     """
-    Returns a random name from a list of names.
+    Returns a random name from an external file called names.txt.
     """
-    list_names = [
-        "John",
-        "Paul",
-        "George",
-        "Ben",
-        "Sam",
-        "Ciara",
-        "Fiona",
-        "Jessica",
-        "Natalie",
-        "Emma",
-    ]
-    return choice(list_names)
+    with open("names.txt") as name_list:
+        names = [name for name in name_list.read().splitlines()]
+        return choice(names)
 
 
 def greetings():
