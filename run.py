@@ -62,6 +62,26 @@ def print_menu():
         "\n[5] Exit"
     )
 
+def get_user_input():
+    """
+    Returns the user input.
+    Run a while loop to collect a valid data from the user
+    via the terminal, which must be a digit.
+    The loop will continue to prompt the user until the data is valid.
+    """
+    
+    while True:
+        print_menu()
+        user_choice = input("\n>> ")
+
+        is_valid_input = validate_input(user_choice)
+
+        if is_valid_input:
+            break
+
+    return user_choice
+    
+
 
 def add_new_task():
     """
@@ -74,20 +94,6 @@ def add_new_task():
     chatboot_message("Adding task...")
     sleep(1)
     chatboot_message(f"\nTask added!\n")
-
-
-def ask_to_add_task():
-    """
-    Asks the user if he/she wants to add a new task.
-    """
-    chatboot_message("\nWould you like to add a new task? [y/N]")
-    answer = input("\n>> ")[0].strip().lower()
-
-    if answer == "y":
-        add_new_task()
-
-    else:
-        end_chat()
 
 
 def view_all_tasks():
@@ -107,12 +113,6 @@ def view_all_tasks():
             print(f"\n{i} - {task}")
             sleep(0.05)
 
-
-def view_removed_tasks():
-    """
-    Returns a list of removed tasks.
-    """
-    return removed_items
 
 
 def remove_task():
@@ -183,6 +183,46 @@ def end_chat():
         sys.exit()
 
 
+def ask_to_add_task():
+    """
+    Asks the user if he/she wants to add a new task.
+    """
+    chatboot_message("\nWould you like to add a new task? [y/N]")
+    answer = input("\n>> ")[0].strip().lower()
+
+    if answer == "y":
+        add_new_task()
+
+    else:
+        end_chat()
+
+
+def view_removed_tasks():
+    """
+    Returns a list of removed tasks.
+    """
+    return removed_items
+
+
+def validate_input(user_input):
+    """
+    Validates the user input.
+    Inside the try/except block, the user is prompted 
+    to enter the data type. Raises a ValueError if 
+    data type is not a digit.
+    """
+
+    try:
+        if not user_input.isdigit():
+            raise ValueError("You must enter a number")
+
+    except ValueError as err:
+        chatboot_message(f'Invalid data type: {err}, please try again.')
+        return False
+
+    return True
+
+
 def main():
     """
     Run all program functions.
@@ -193,30 +233,23 @@ def main():
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
+        
+    user_input = get_user_input()
 
-    while True:
-        print_menu()
-        user_choice = input("\n>> ")
-
-        if not user_choice.isdigit():
+    match user_input:
+        case 1:
+            add_new_task()
+        case 2:
+            view_all_tasks()
+        case 3:
+            remove_task()
+        case 4:
+            restore_task()
+        case 5:
+            end_chat()
+        case _:
             chatboot_message("\nPlease enter a valid option.\n")
-
-        else:
-            user_choice = int(user_choice)
-
-            match user_choice:
-                case 1:
-                    add_new_task()
-                case 2:
-                    view_all_tasks()
-                case 3:
-                    remove_task()
-                case 4:
-                    restore_task()
-                case 5:
-                    end_chat()
-                case _:
-                    chatboot_message("\nPlease enter a valid option.\n")
+            
 
 removed_items = []
 task_list = []
