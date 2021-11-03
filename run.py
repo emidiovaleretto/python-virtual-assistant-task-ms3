@@ -52,7 +52,7 @@ def greetings():
 
 def get_username():
     """
-    Returns the username of the user.
+    Returns the user name input.
     """
     return input("\n>> ")
 
@@ -65,9 +65,10 @@ def print_menu():
         "\n[1] Add a new task"
         "\n[2] View all tasks"
         "\n[3] Delete a task"
-        "\n[4] Restore a deleted task"
+        "\n[4] Restore a task"
         "\n[5] Exit"
     )
+
 
 def get_user_input():
     """
@@ -76,31 +77,37 @@ def get_user_input():
     via the terminal, which must be a digit.
     The loop will continue to prompt the user until the data is valid.
     """
-            
-    user_choice = input("\n>> ")
 
-    is_valid_input = validate_input(user_choice)
+    while True:
 
-    if is_valid_input:
-        return int(user_choice)
- 
-    
+        print_menu()
+        user_input = input("\n>> ")
+        is_valid_input = validate_input(user_input)
+
+        if is_valid_input:
+            break
+
+    return int(user_input)
+
+
 def validate_input(user_input):
     """
     Validates the user input.
-    Inside the try/except block, the user is prompted 
-    to enter the data type. Raises a ValueError if 
+    Inside the try/except block, the user is prompted
+    to enter the data type. Raises a ValueError if
     data type is not a digit.
     """
 
     try:
-        if not user_input.isdigit():
-            raise ValueError("You must enter a number")
+        if user_input.isdigit():
+            int(user_input)
+        else:
+            raise ValueError(f"'{user_input}' is not a valid data type.")
 
     except ValueError as err:
-        chatboot_message(f'Invalid data type: {err}, please try again.')
+        chatboot_message(f"{err}")
         return False
-    
+
     return True
 
 
@@ -117,23 +124,20 @@ def add_new_task():
     chatboot_message(f"\nTask added!\n")
 
 
-def view_all_tasks():
+def view_all_tasks(list):
     """
     Prints a list of tasks.
     """
-    if not task_list:
+    if not list:
         sleep(1)
         chatboot_message("\nYour list is still empty.\n")
         ask_to_add_task()
 
     else:
-        chatboot_message(f"\nHere is your list of tasks:\n")
-
-        for i, task in enumerate(task_list):
+        for i, task in enumerate(list):
             i += 1
             print(f"\n{i} - {task}")
             sleep(0.05)
-
 
 
 def remove_task():
@@ -147,7 +151,7 @@ def remove_task():
 
     else:
         chatboot_message(f"\nWhich task would you like to delete?\n")
-        view_all_tasks()
+        view_all_tasks(task_list)
         task_to_delete = int(input("\n>> "))
 
         for i, task in enumerate(task_list):
@@ -168,7 +172,7 @@ def restore_task():
 
     else:
         chatboot_message(f"\nWhich task would you like to restore?\n")
-        print(view_removed_tasks())
+        view_all_tasks(removed_items)
         task_to_restore = int(input("\n>> "))
 
         for i, task in enumerate(removed_items):
@@ -185,7 +189,8 @@ def end_chat():
     """
     chatboot_message(
         "\nI’m glad I was able to get that sorted out for you. "
-        "\nBefore you go, is there anything else I can assist you with today? [y/N]\n"
+        "\nBefore you go, is there anything else I can assist "
+        "you with today? [y/N]\n"
     )
 
     answer = input("\n>> ")[0].strip().lower()
@@ -235,17 +240,17 @@ def main():
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
-        
+
     while True:
 
-        print_menu()
         user_choice = get_user_input()
 
         match user_choice:
             case 1:
                 add_new_task()
             case 2:
-                view_all_tasks()
+                chatboot_message(f"\nHere is your list of tasks:\n")
+                view_all_tasks(task_list)
             case 3:
                 remove_task()
             case 4:
