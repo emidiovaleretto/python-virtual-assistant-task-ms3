@@ -102,7 +102,7 @@ def validate_input(user_input):
         if user_input.isdigit():
             int(user_input)
         else:
-            raise ValueError(f"'{user_input}' is not a valid data type.")
+            raise ValueError(f"\n'{user_input}' is not a valid data type.")
 
     except ValueError as err:
         chatboot_message(f"{err}")
@@ -190,7 +190,7 @@ def end_chat():
     chatboot_message(
         "\nI’m glad I was able to get that sorted out for you. "
         "\nBefore you go, is there anything else I can assist "
-        "you with today? [y/N]\n"
+        "you with today? [y/N]"
     )
 
     answer = input("\n>> ")[0].strip().lower()
@@ -245,20 +245,23 @@ def main():
 
         user_choice = get_user_input()
 
-        match user_choice:
-            case 1:
-                add_new_task()
-            case 2:
-                chatboot_message(f"\nHere is your list of tasks:\n")
-                view_all_tasks(task_list)
-            case 3:
-                remove_task()
-            case 4:
-                restore_task()
-            case 5:
-                end_chat()
-            case _:
-                chatboot_message("\nPlease enter a valid option.\n")
+        if user_choice == 1:
+            add_new_task()
+
+        elif user_choice == 2:
+            view_all_tasks(task_list)
+
+        elif user_choice == 3:
+            remove_task()
+
+        elif user_choice == 4:
+            restore_task()
+
+        elif user_choice == 5:
+            end_chat()
+
+        else:
+            chatboot_message("\nPlease enter a valid option.\n")
 
 
 removed_items = []
