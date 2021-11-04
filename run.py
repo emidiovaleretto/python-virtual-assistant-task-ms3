@@ -45,7 +45,7 @@ def get_username():
     """
     Returns the user name input.
     """
-    return input("\n>> ")
+    return input("\n>> ").strip().capitalize()
 
 
 def print_menu():
@@ -100,6 +100,37 @@ def validate_input(user_input):
         return False
 
     return True
+
+
+def get_user_choice():
+    """
+    Gets the user choice.
+    Run a while loop to get the user choice.
+    The loop will continue to prompt the user until
+    he/she decides to exit the program.
+    """
+    while True:
+
+        user_choice = get_user_input()
+
+        if user_choice == 1:
+            add_new_task()
+
+        elif user_choice == 2:
+            chatboot_message("\nHere is your list of tasks:\n")
+            view_all_tasks(task_list)
+
+        elif user_choice == 3:
+            remove_task()
+
+        elif user_choice == 4:
+            restore_task()
+
+        elif user_choice == 5:
+            end_chat()
+
+        else:
+            chatboot_message("\nPlease enter a valid option.\n")
 
 
 def add_new_task():
@@ -245,29 +276,7 @@ def main():
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
-
-    while True:
-
-        user_choice = get_user_input()
-
-        if user_choice == 1:
-            add_new_task()
-
-        elif user_choice == 2:
-            chatboot_message("\nHere is your list of tasks:\n")
-            view_all_tasks(task_list)
-
-        elif user_choice == 3:
-            remove_task()
-
-        elif user_choice == 4:
-            restore_task()
-
-        elif user_choice == 5:
-            end_chat()
-
-        else:
-            chatboot_message("\nPlease enter a valid option.\n")
+    get_user_choice()
 
 
 removed_items = []
