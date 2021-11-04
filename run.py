@@ -213,7 +213,8 @@ def ask_to_add_task():
         add_new_task()
 
     else:
-        end_chat()
+        chatboot_message("\nOkay, let me show you some other options.\n")
+        # then loop goes back to the main thread (print_menu)
 
 
 def view_removed_tasks():
