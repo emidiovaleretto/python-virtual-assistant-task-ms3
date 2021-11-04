@@ -212,25 +212,27 @@ def end_chat():
     """
     chatboot_message(
         "\nI'm glad I was able to get that sorted out for you. "
-        "\nBefore you go, is there anything else I can assist "
-        "you with today? [y/N]"
+        "\nBefore you go, would you like to get a copy of this chat? [y/N]"
     )
 
     answer = input("\n>> ")[0].strip().lower()
 
     if answer == "y":
+        chatboot_message("\nGreat! Enter your email address below:")
+        email = input("\n>> ").strip()
+        # send_email(email) -> to be implemented
         chatboot_message(
-            "\nNot problem at all. \nI'm going to show you some options.\n"
+            "\nOK, you're all set. Check your inbox for an email "
+            "with the LiveChat transcript.\n"
         )
 
-    else:
-        chatboot_message(
-            "\nThank you so much for using our chat service. "
-            "\nWe hope we will hear from you soon. \nHave a great day!\n"
-        )
-        sleep(1)
-        os.remove("log.txt")
-        sys.exit()
+    chatboot_message(
+        "\nThank you so much for using our chat service. "
+        "\nWe hope we will hear from you soon. \nHave a great day!\n"
+    )
+    sleep(1)
+    os.remove("log.txt")
+    sys.exit()
 
 
 def ask_to_add_task():
