@@ -250,13 +250,6 @@ def ask_to_add_task():
         # then loop goes back to the main thread (print_menu)
 
 
-def view_removed_tasks():
-    """
-    Returns a list of removed tasks.
-    """
-    return removed_items
-
-
 def log(message):
     """
     Logs the conversation and save to an external file.
