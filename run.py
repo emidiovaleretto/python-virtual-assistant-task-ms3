@@ -41,13 +41,6 @@ def greetings():
     )
 
 
-def get_username():
-    """
-    Returns the user name input.
-    """
-    return input("\n>> ").strip().capitalize()
-
-
 def print_menu():
     """
     Prints the menu of options.
@@ -266,7 +259,7 @@ def main():
     Run all program functions.
     """
     greetings()
-    username = get_username()
+    username = input("\n>> ").strip().capitalize()
     chatbot_message(
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
