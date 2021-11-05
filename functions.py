@@ -2,6 +2,7 @@ import os
 import sys
 from random import choice
 from time import sleep
+from send_email import send_email
 
 
 def typing_effect(text):
@@ -95,9 +96,9 @@ def validate_input(user_input):
     return True
 
 
-def get_user_choice():
+def start_bot():
     """
-    Gets the user choice.
+    Starts bot.
     Run a while loop to get the user choice.
     The loop will continue to prompt the user until
     he/she decides to exit the program.
@@ -218,9 +219,11 @@ def end_chat():
     if answer == "y":
         chatbot_message("\nGreat! Enter your email address below:")
         email = input("\n>> ").strip()
-        # send_email(email) -> to be implemented
+        send_email(email, "Here is your conversation log.")
+        print("\nSending email...")
+        sleep(5)
         chatbot_message(
-            "\nOK, you're all set. Check your inbox for an email "
+            "\nOK, all done! Check your inbox for an email "
             "with the LiveChat transcript.\n"
         )
 
@@ -269,7 +272,7 @@ def main():
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
     )
-    get_user_choice()
+    start_bot()
 
 
 removed_items = []
