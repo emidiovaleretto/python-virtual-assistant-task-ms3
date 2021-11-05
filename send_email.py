@@ -19,11 +19,19 @@ def send_email(user_email_address, message):
     The message will be the conversation log.
     """
 
-    with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
-        server.login(email_address, password=password)
-        server.sendmail(
-            to_addrs=user_email_address,
-            from_addr=email_address,
-            msg=message,
+    try:
+        with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
+            server.login(email_address, password=password)
+            server.sendmail(
+                to_addrs=user_email_address,
+                from_addr=email_address,
+                msg=message,
+            )
+            server.quit()
+
+    except Exception:
+        print(
+            "Sorry. It appears that you have not entered "
+            "your email address correctly."
         )
-        server.quit()
+        return False
