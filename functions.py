@@ -70,7 +70,8 @@ def get_user_input():
         is_a_digit = validate_input(user_input, str.isdigit)
 
         value = int(user_input) if is_a_digit else user_input
-        print(type(value))
+
+        return value
 
 
 def validate_input(user_input, function):
