@@ -65,35 +65,33 @@ def get_user_input():
 
     while True:
 
-        print_menu()
+        # print_menu()
         user_input = input("\n>> ")
-        is_valid_input = validate_input(user_input)
+        is_a_digit = validate_input(user_input, str.isdigit)
 
-        if is_valid_input:
-            break
-
-    return log(int(user_input), "User")
+        value = int(user_input) if is_a_digit else user_input
+        print(type(value))
 
 
-def validate_input(user_input):
+def validate_input(user_input, function):
     """
     Validates the user input.
     Inside the try/except block, the user is prompted
     to enter the data type. Raises a ValueError if
-    data type is not a digit.
+    data type is not a digit or an alpha,
+    depending to the data type specification
+    by the user.
     """
 
     try:
-        if user_input.isdigit():
-            int(user_input)
+        if any(function(x) for x in user_input):
+            return True
         else:
-            raise ValueError(f"\n'{user_input}' is not a valid data type.\n")
+            raise ValueError(f"'{user_input}' isn't a valid input.")
 
     except ValueError as err:
         chatbot_message(f"{err}")
         return False
-
-    return True
 
 
 def start_bot():
@@ -107,20 +105,20 @@ def start_bot():
 
         user_choice = get_user_input()
 
-        if user_choice == 1:
+        if user_choice == "1":
             add_new_task()
 
-        elif user_choice == 2:
+        elif user_choice == "2":
             chatbot_message("\nHere is your list of tasks:\n")
             view_all_tasks(task_list)
 
-        elif user_choice == 3:
+        elif user_choice == "3":
             remove_task()
 
-        elif user_choice == 4:
+        elif user_choice == "4":
             restore_task()
 
-        elif user_choice == 5:
+        elif user_choice == "5":
             end_chat()
 
         else:
@@ -219,13 +217,16 @@ def end_chat():
     if answer == "y":
         chatbot_message("\nGreat! Enter your email address below:")
         email = input("\n>> ").strip()
-        send_email(email, "Here is your conversation log.")
-        print("\nSending email...")
-        sleep(5)
-        chatbot_message(
-            "\nOK, all done! Check your inbox for an email "
-            "with the LiveChat transcript.\n"
-        )
+        is_a_valid_email = send_email(email, "Here is your conversation log.")
+
+        if is_a_valid_email:
+
+            print("\nSending email...")
+            sleep(5)
+            chatbot_message(
+                "\nOK, all done! Check your inbox for an email "
+                "with the LiveChat transcript.\n"
+            )
 
     chatbot_message(
         "\nThank you so much for using our chat service. "
