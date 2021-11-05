@@ -26,3 +26,4 @@ def send_email(user_email_address, message):
             from_addr=email_address,
             msg=message,
         )
+        server.quit()
