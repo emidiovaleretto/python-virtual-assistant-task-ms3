@@ -65,16 +65,16 @@ def get_user_input():
 
     while True:
 
-        # print_menu()
+        print_menu()
         user_input = input("\n>> ")
         is_a_digit = validate_input(user_input, str.isdigit)
 
-        value = int(user_input) if is_a_digit else user_input
+        value = int(user_input) if is_a_digit else user_input.strip()
 
         return value
 
 
-def validate_input(user_input, function):
+def validate_input(user_input, str_method):
     """
     Validates the user input.
     Inside the try/except block, the user is prompted
@@ -85,7 +85,7 @@ def validate_input(user_input, function):
     """
 
     try:
-        if any(function(x) for x in user_input):
+        if str_method(user_input):
             return True
         else:
             raise ValueError(f"'{user_input}' isn't a valid input.")
@@ -106,24 +106,24 @@ def start_bot():
 
         user_choice = get_user_input()
 
-        if user_choice == "1":
+        if user_choice == 1:
             add_new_task()
 
-        elif user_choice == "2":
+        elif user_choice == 2:
             chatbot_message("\nHere is your list of tasks:\n")
             view_all_tasks(task_list)
 
-        elif user_choice == "3":
+        elif user_choice == 3:
             remove_task()
 
-        elif user_choice == "4":
+        elif user_choice == 4:
             restore_task()
 
-        elif user_choice == "5":
+        elif user_choice == 5:
             end_chat()
 
         else:
-            chatbot_message("\nPlease enter a valid option.\n")
+            chatbot_message("\nPlease try again.\n")
 
 
 def add_new_task():
@@ -175,7 +175,11 @@ def remove_task():
         task_to_delete = get_user_input()
 
         for i, task in enumerate(task_list):
-            if task_to_delete == i + 1:
+
+            if task_to_delete != i + 1:
+                return chatbot_message(f"\nTask not found.\n")
+
+            else:
                 removed_task = task_list.pop(i)
                 removed_items.append(removed_task)
                 sleep(1)
@@ -197,7 +201,11 @@ def restore_task():
         task_to_restore = get_user_input()
 
         for i, task in enumerate(removed_items):
-            if task_to_restore == i + 1:
+
+            if task_to_restore != i + 1:
+                return chatbot_message(f"\nTask not found.\n")
+
+            else:
                 restored_task = removed_items.pop(i)
                 task_list.append(restored_task)
                 sleep(1)
@@ -269,7 +277,7 @@ def main():
     Run all program functions.
     """
     greetings()
-    username = input("\n>> ").strip().capitalize()
+    username = input("\n>> ").strip().title()
     chatbot_message(
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
