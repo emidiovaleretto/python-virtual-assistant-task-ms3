@@ -35,3 +35,5 @@ def send_email(user_email_address, message):
             "your email address correctly."
         )
         return False
+
+    return True
