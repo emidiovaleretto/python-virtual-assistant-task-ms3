@@ -55,7 +55,7 @@ def print_menu():
     )
 
 
-def get_user_input():
+def get_int_input():
     """
     Returns the user input.
     Run a while loop to collect a valid data from the user
@@ -68,9 +68,30 @@ def get_user_input():
         user_input = input("\n>> ")
         is_a_digit = validate_input(user_input, str.isdigit)
 
-        value = int(user_input) if is_a_digit else user_input.strip()
+        if is_a_digit:
+            break
 
-        return value
+    return int(user_input)
+
+
+def get_str_input():
+    """
+    Returns the user input.
+    Run a while loop to collect a valid data from the user
+    via the terminal, which must be a string.
+    The loop will continue to prompt the user until the data is valid.
+    """
+
+    while True:
+
+        user_input = input("\n>> ").strip().lower()
+        new_string = "".join(user_input.split())
+        is_a_string = validate_input(new_string, str.isalpha)
+
+        if is_a_string:
+            break
+
+    return user_input
 
 
 def validate_input(user_input, str_method):
@@ -84,11 +105,14 @@ def validate_input(user_input, str_method):
     """
 
     try:
-        if str_method(user_input):
-            return True
+        if not str_method(user_input):
+            raise ValueError(f"'\n{user_input}' isn't a valid input.")
 
-    except ValueError:
+    except ValueError as err:
+        chatbot_message(f"{err}")
         return False
+
+    return True
 
 
 def start_bot():
@@ -102,7 +126,7 @@ def start_bot():
 
         print_menu()
 
-        user_choice = get_user_input()
+        user_choice = get_int_input()
 
         if user_choice == 1:
             add_new_task()
@@ -122,7 +146,7 @@ def start_bot():
 
         else:
             chatbot_message(
-                f"'{user_choice}' isn't a valid input. \nPlease try again.\n"
+                f"\nThis option does not exist in the menu.\nPlease try again."
             )
 
 
@@ -131,7 +155,7 @@ def add_new_task():
     Adds a new task to the list.
     """
     chatbot_message("\nWhat task would you like to add?\n")
-    task = input("\n>> ").strip()
+    task = get_str_input()
 
     chatbot_message(f"\nGreat! Let's add [{task.upper()}] to your list.\n")
     chatbot_message("Adding task...")
@@ -172,7 +196,7 @@ def remove_task():
     else:
         chatbot_message(f"\nWhich task would you like to delete?\n")
         view_all_tasks(task_list)
-        task_to_delete = get_user_input()
+        task_to_delete = get_int_input()
 
         for i, task in enumerate(task_list):
 
@@ -198,7 +222,7 @@ def restore_task():
     else:
         chatbot_message(f"\nWhich task would you like to restore?\n")
         view_all_tasks(removed_items)
-        task_to_restore = get_user_input()
+        task_to_restore = get_int_input()
 
         for i, task in enumerate(removed_items):
 
@@ -221,11 +245,11 @@ def end_chat():
         "\nBefore you go, would you like to get a copy of this chat? [y/N]"
     )
 
-    answer = input("\n>> ")[0].strip().lower()
+    answer = get_str_input()[0]
 
     if answer == "y":
         chatbot_message("\nGreat! Enter your email address below:")
-        email = input("\n>> ").strip()
+        email = input("\n>>")
         is_a_valid_email = send_email(email, "Here is your conversation log.")
 
         if is_a_valid_email:
@@ -251,7 +275,7 @@ def ask_to_add_task():
     Asks the user if he/she wants to add a new task.
     """
     chatbot_message("\nWould you like to add a new task? [y/N]")
-    answer = get_user_input()
+    answer = get_str_input()[0]
 
     if answer == "y":
         add_new_task()
@@ -277,7 +301,7 @@ def main():
     Run all program functions.
     """
     greetings()
-    username = input("\n>> ").strip().title()
+    username = get_str_input().title()
     chatbot_message(
         f"\nHi, {username}. Thank you for using our chat service. "
         "\nHow may I assist you today?\n"
