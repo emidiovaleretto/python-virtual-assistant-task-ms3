@@ -1,5 +1,6 @@
 import smtplib
 import ssl
+from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from decouple import config
@@ -11,7 +12,7 @@ sender_email = config("EMAIL_ADDRESS")
 password = config("PASSWORD")
 
 
-def send_email(receiver_email, content):
+def send_email(receiver_email):
     """
     This function sends an email from the email
     address specified in the config file to the
@@ -19,27 +20,40 @@ def send_email(receiver_email, content):
     The message will be the conversation log.
     """
 
-    message = MIMEMultipart("alternative")
+    message = MIMEMultipart()
     message["Subject"] = "Your conversation log"
     message["From"] = "Python Bot"
     message["To"] = receiver_email
 
     # Create the plain-text version of message
-    text = f"""
+    body = """
 Hi!
+
 How are you doing today?
 Thanks for using our service.
-Here is your conversation log: \n{content}
+
+Please see attached file for the above mentioned subject.
+
+Yours sincerely,
+Python Bot
 """
 
-    # Turn the message into a html MIMEText object
-    part1 = MIMEText(text, "plain")
-
-    # Attach the plain-text part to the MIMEMultipart object
-    message.attach(part1)
+    # Add body to message
+    message.attach(MIMEText(body, "plain"))
 
     # Create a secure SSL context
     context = ssl.create_default_context()
+
+    file = "log.txt"
+
+    with open(file, "rb") as attachment:
+        part = MIMEBase("application", "octet-stream")
+        part.set_payload(attachment.read(), "base64")
+
+    # Add headers as key/value pairs to attachment part
+    part.add_header("Content-Disposition", f"attachment; filename= {file}")
+
+    message.attach(part)
 
     try:
         with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:

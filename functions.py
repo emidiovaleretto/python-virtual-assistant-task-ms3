@@ -1,5 +1,5 @@
 import sys
-from os import system, name, remove
+import os
 from random import choice
 from time import sleep
 from send_email import send_email
@@ -250,7 +250,7 @@ def end_chat():
     if answer == "y":
         chatbot_message("\nGreat! Enter your email address below:")
         email = input("\n>>")
-        is_a_valid_email = send_email(email, "Here is your conversation log.")
+        is_a_valid_email = send_email(email)
 
         if is_a_valid_email:
 
@@ -267,8 +267,9 @@ def end_chat():
         "\nWe hope we will hear from you soon. \nHave a great day!\n"
     )
     sleep(2)
-    remove("log.txt")
+    os.remove("log.txt")
     print("\nThe agent has left the chat.")
+    sleep(5)
     clear_output()
     sys.exit()
 
@@ -304,7 +305,7 @@ def clear_output():
     This function clears the output of the terminal
     right after the user exits the program.
     """
-    return system("cls") if name == "nt" else system("clear")
+    return os.system("cls") if os.name == "nt" else os.system("clear")
 
 
 def main():
