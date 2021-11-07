@@ -254,6 +254,7 @@ def end_chat():
 
         if is_a_valid_email:
 
+            sleep(3)
             print("\nSending email...")
             sleep(5)
             chatbot_message(
