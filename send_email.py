@@ -1,15 +1,18 @@
-import smtplib
 import ssl
+import smtplib
+from environs import Env
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-from decouple import config
 
+# Create an Env object
+env = Env()
+env.read_env()
 
-host = config("HOST")
-port = config("PORT")
-sender_email = config("EMAIL_ADDRESS")
-password = config("PASSWORD")
+host = env("HOST")
+port = env("PORT")
+sender_email = env("EMAIL_ADDRESS")
+password = env("PASSWORD")
 
 
 def send_email(receiver_email):
