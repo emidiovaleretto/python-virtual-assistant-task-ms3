@@ -65,7 +65,6 @@ def get_user_input():
 
     while True:
 
-        print_menu()
         user_input = input("\n>> ")
         is_a_digit = validate_input(user_input, str.isdigit)
 
@@ -87,11 +86,8 @@ def validate_input(user_input, str_method):
     try:
         if str_method(user_input):
             return True
-        else:
-            raise ValueError(f"'{user_input}' isn't a valid input.")
 
-    except ValueError as err:
-        chatbot_message(f"{err}")
+    except ValueError:
         return False
 
 
@@ -103,6 +99,8 @@ def start_bot():
     he/she decides to exit the program.
     """
     while True:
+
+        print_menu()
 
         user_choice = get_user_input()
 
@@ -123,7 +121,9 @@ def start_bot():
             end_chat()
 
         else:
-            chatbot_message("\nPlease try again.\n")
+            chatbot_message(
+                f"'{user_choice}' isn't a valid input. \nPlease try again.\n"
+            )
 
 
 def add_new_task():
@@ -251,7 +251,7 @@ def ask_to_add_task():
     Asks the user if he/she wants to add a new task.
     """
     chatbot_message("\nWould you like to add a new task? [y/N]")
-    answer = input("\n>> ")[0].strip().lower()
+    answer = get_user_input()
 
     if answer == "y":
         add_new_task()
