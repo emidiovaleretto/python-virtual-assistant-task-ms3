@@ -266,8 +266,9 @@ def end_chat():
         "\nThank you so much for using our chat service. "
         "\nWe hope we will hear from you soon. \nHave a great day!\n"
     )
-    sleep(1)
+    sleep(2)
     remove("log.txt")
+    print("\nThe agent has left the chat.")
     clear_output()
     sys.exit()
 
