@@ -1,5 +1,5 @@
-import os
 import sys
+from os import system, name, remove
 from random import choice
 from time import sleep
 from send_email import send_email
@@ -37,7 +37,7 @@ def greetings():
     """
     chosen_name = choose_name_randomly()
     chatbot_message(
-        f"Hello, my name is {chosen_name}. It's nice to speak with you."
+        f"\nHello, my name is {chosen_name}. It's nice to speak with you."
         "\nMay I please have your name?"
     )
 
@@ -267,7 +267,8 @@ def end_chat():
         "\nWe hope we will hear from you soon. \nHave a great day!\n"
     )
     sleep(1)
-    os.remove("log.txt")
+    remove("log.txt")
+    clear_output()
     sys.exit()
 
 
@@ -295,6 +296,14 @@ def log(message, person):
     with open(path, "a", newline="") as log_file:
         log_file.write(f"[{person}] - {message}\n")
         return message
+
+
+def clear_output():
+    """
+    This function clears the output of the terminal
+    right after the user exits the program.
+    """
+    return system("cls") if name == "nt" else system("clear")
 
 
 def main():
