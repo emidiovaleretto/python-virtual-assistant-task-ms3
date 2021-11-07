@@ -21,7 +21,7 @@ def send_email(receiver_email, content):
 
     message = MIMEMultipart("alternative")
     message["Subject"] = "Your conversation log"
-    message["From"] = sender_email
+    message["From"] = "Python Bot"
     message["To"] = receiver_email
 
     # Create the plain-text version of message
