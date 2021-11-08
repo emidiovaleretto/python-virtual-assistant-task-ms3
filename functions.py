@@ -37,8 +37,13 @@ def greetings():
     """
     chosen_name = choose_name_randomly()
     chatbot_message(
-        f"\nHello, my name is {chosen_name}. It's nice to speak with you."
+        f"Hello, my name is {chosen_name}. It's nice to speak with you."
         "\nMay I please have your name?"
+    )
+    username = get_str_input().title()
+    chatbot_message(
+        f"Hi, {username}. Thank you for using our chat service.\n"
+        "How may I assist you today?\n"
     )
 
 
@@ -71,7 +76,7 @@ def get_int_input():
         if is_a_digit:
             break
 
-    return int(user_input)
+    return log(int(user_input), "User")
 
 
 def get_str_input():
@@ -91,7 +96,7 @@ def get_str_input():
         if is_a_string:
             break
 
-    return user_input
+    return log(user_input, "User")
 
 
 def validate_input(user_input, str_method):
@@ -106,7 +111,7 @@ def validate_input(user_input, str_method):
 
     try:
         if not str_method(user_input):
-            raise ValueError(f"'\n{user_input}' isn't a valid input.")
+            raise ValueError(f"\n'{user_input}' isn't a valid input.")
 
     except ValueError as err:
         chatbot_message(f"{err}")
@@ -146,7 +151,7 @@ def start_bot():
 
         else:
             chatbot_message(
-                f"\nThis option does not exist in the menu.\nPlease try again."
+                f"\nThis option does not exist in the menu. Please try again."
             )
 
 
@@ -154,16 +159,16 @@ def add_new_task():
     """
     Adds a new task to the list.
     """
-    chatbot_message("\nWhat task would you like to add?\n")
+    chatbot_message("What task would you like to add?")
     task = get_str_input()
 
-    chatbot_message(f"\nGreat! Let's add [{task.upper()}] to your list.\n")
-    chatbot_message("Adding task...")
+    chatbot_message(f"Great! Let's add [{task.upper()}] to your list.")
+    chatbot_message("\nAdding task...")
 
     task_list.append(task.capitalize())
-    sleep(1)
+    sleep(2)
 
-    chatbot_message(f"\nTask added!\n")
+    chatbot_message("\nTask added!")
     ask_to_add_task()
 
 
@@ -173,13 +178,13 @@ def view_all_tasks(list):
     """
     if not list:
         sleep(1)
-        chatbot_message("\nYour list is still empty.\n")
+        chatbot_message("Your list is still empty.\n")
         ask_to_add_task()
 
     else:
         for i, task in enumerate(list):
             i += 1
-            print(f"\n{i} - {task}")
+            print(f"\t{i} - {task}")
 
         sleep(1)
 
@@ -194,20 +199,20 @@ def remove_task():
         ask_to_add_task()
 
     else:
-        chatbot_message(f"\nWhich task would you like to delete?\n")
+        chatbot_message("Which task would you like to delete?")
         view_all_tasks(task_list)
         task_to_delete = get_int_input()
 
         for i, task in enumerate(task_list):
 
             if task_to_delete != i + 1:
-                return chatbot_message(f"\nTask not found.\n")
+                return chatbot_message("Task not found.\n")
 
             else:
                 removed_task = task_list.pop(i)
                 removed_items.append(removed_task)
                 sleep(1)
-                return chatbot_message(f"\nTask [{task}] removed!\n")
+                return chatbot_message(f"Task [{task}] removed!\n")
 
 
 def restore_task():
@@ -216,24 +221,24 @@ def restore_task():
     """
     if not removed_items:
         sleep(1)
-        chatbot_message("\nThere is no tasks to be restored.\n")
+        chatbot_message("There is no tasks to be restored.\n")
         ask_to_add_task()
 
     else:
-        chatbot_message(f"\nWhich task would you like to restore?\n")
+        chatbot_message("Which task would you like to restore?")
         view_all_tasks(removed_items)
         task_to_restore = get_int_input()
 
         for i, task in enumerate(removed_items):
 
             if task_to_restore != i + 1:
-                return chatbot_message(f"\nTask not found.\n")
+                return chatbot_message("Task not found.\n")
 
             else:
                 restored_task = removed_items.pop(i)
                 task_list.append(restored_task)
                 sleep(1)
-                return chatbot_message(f"\nTask [{task}] restored!\n")
+                return chatbot_message(f"Task [{task}] restored!\n")
 
 
 def end_chat():
@@ -241,35 +246,45 @@ def end_chat():
     Prints a message to the user ending the conversation.
     """
     chatbot_message(
-        "\nI'm glad I was able to get that sorted out for you. "
+        "I'm glad I was able to get that sorted out for you."
         "\nBefore you go, would you like to get a copy of this chat? [y/N]"
     )
 
     answer = get_str_input()[0]
 
     if answer == "y":
-        chatbot_message("\nGreat! Enter your email address below:")
-        email = input("\n>>")
+        chatbot_message("Great! Enter your email address below:\n")
+        email = log(input(">> "), "User")
         is_a_valid_email = send_email(email)
 
         if is_a_valid_email:
 
             sleep(3)
-            print("\nSending email...")
+            print("\nSending email...\n")
             sleep(5)
             chatbot_message(
-                "\nOK, all done! Check your inbox for an email "
+                "OK, all done! Check your inbox for an email "
                 "with the LiveChat transcript.\n"
             )
 
+        else:
+            chatbot_message(
+                "Sorry. It appears that you have not entered "
+                "your email address correctly\n."
+            )
+    else:
+        chatbot_message("Please enter a valid option.\n")
+        return False
+
     chatbot_message(
-        "\nThank you so much for using our chat service. "
-        "\nWe hope we will hear from you soon. \nHave a great day!\n"
+        "\nThank you so much for using our chat service.\n"
+        "We hope we will hear from you soon.\n"
+        "Have a great day!\n"
     )
     sleep(2)
     os.remove("log.txt")
-    print("\nThe agent has left the chat.")
-    sleep(5)
+    print("\n>>> The agent has left the chat.")
+    sleep(3)
     clear_output()
     sys.exit()
 
@@ -278,14 +293,14 @@ def ask_to_add_task():
     """
     Asks the user if he/she wants to add a new task.
     """
-    chatbot_message("\nWould you like to add a new task? [y/N]")
+    chatbot_message("Would you like to add a new task? [y/N]")
     answer = get_str_input()[0]
 
     if answer == "y":
         add_new_task()
 
     else:
-        chatbot_message("\nOkay, let me show you some other options.\n")
+        chatbot_message("Okay, let me show you some other options.\n")
         # then loop goes back to the main thread (print_menu)
 
 
@@ -313,11 +328,6 @@ def main():
     Run all program functions.
     """
     greetings()
-    username = get_str_input().title()
-    chatbot_message(
-        f"\nHi, {username}. Thank you for using our chat service. "
-        "\nHow may I assist you today?\n"
-    )
     start_bot()
 
 
