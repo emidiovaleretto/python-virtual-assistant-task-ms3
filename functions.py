@@ -2,7 +2,19 @@ import sys
 import os
 from random import choice
 from time import sleep
+from datetime import datetime
 from send_email import send_email
+
+
+def get_datetime():
+    """
+    Returns the current time.
+    e.g. 17:47:15
+    """
+    return datetime.now().strftime("%H:%M:%S")
+
+
+date = get_datetime()
 
 
 def typing_effect(text):
@@ -311,7 +323,7 @@ def log(message, person):
     path = "log.txt"
 
     with open(path, "a", newline="") as log_file:
-        log_file.write(f"[{person}] - {message}\n")
+        log_file.write(f"[{person}][{date}] - {message}\n")
         return message
 
 
