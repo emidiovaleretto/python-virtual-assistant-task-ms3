@@ -284,9 +284,6 @@ def end_chat():
                 "Sorry. It appears that you have not entered "
                 "your email address correctly\n."
             )
-    else:
-        chatbot_message("Please enter a valid option.\n")
-        return False
 
     chatbot_message(
         "\nThank you so much for using our chat service.\n"
