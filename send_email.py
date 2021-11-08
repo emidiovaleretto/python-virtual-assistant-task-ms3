@@ -71,8 +71,8 @@ Python Bot
 
     except Exception:
         print(
-            "Sorry. It appears that you have not entered "
-            "your email address correctly."
+            "\nCouldn't connect. There may be a problem with "
+            "the server. Please try again later."
         )
         return False
 
