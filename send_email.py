@@ -10,7 +10,7 @@ env = Env()
 env.read_env()
 
 host = env("HOST")
-port = env("PORT")
+port = env("PORT_GMAIL")
 sender_email = env("EMAIL_ADDRESS")
 password = env("PASSWORD")
 
