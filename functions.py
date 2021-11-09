@@ -28,7 +28,8 @@ def chatbot_message(text):
     """
     Returns the chatbot message.
     """
-    return typing_effect(log(text, "Agent"))
+    log(text, "Agent")
+    return typing_effect(text)
 
 
 def choose_name_randomly():
@@ -85,7 +86,9 @@ def get_int_input():
         if is_a_digit:
             break
 
-    return log(int(user_input), "User")
+    log(user_input, "User")
+
+    return int(user_input)
 
 
 def get_str_input():
@@ -105,7 +108,9 @@ def get_str_input():
         if is_a_string:
             break
 
-    return log(user_input, "User")
+    log(user_input, "User")
+
+    return user_input
 
 
 def validate_input(user_input, str_method):
@@ -333,9 +338,17 @@ def main():
     """
     Run all program functions.
     """
+    # Starts the program with the console clear.
+    clear_output()
+
+    # Prints the welcome message.
     greetings()
+
+    # Starts the main loop.
     start_bot()
 
+
+# global variables
 
 removed_items = []
 task_list = []
