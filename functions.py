@@ -14,9 +14,6 @@ def get_datetime():
     return datetime.now().strftime("%H:%M:%S")
 
 
-date = get_datetime()
-
-
 def typing_effect(text):
     """
     Prints text with a typing effect.
@@ -302,7 +299,7 @@ def ask_to_add_task():
     """
     Asks the user if he/she wants to add a new task.
     """
-    chatbot_message("Would you like to add a new task? [y/N]")
+    chatbot_message("\nWould you like to add a new task? [y/N]")
     answer = get_str_input()[0]
 
     if answer == "y":
@@ -320,7 +317,7 @@ def log(message, person):
     path = "log.txt"
 
     with open(path, "a", newline="") as log_file:
-        log_file.write(f"[{person}][{date}] - {message}\n")
+        log_file.write(f"[{person}][{get_datetime()}] - {message}\n")
         return message
 
 
