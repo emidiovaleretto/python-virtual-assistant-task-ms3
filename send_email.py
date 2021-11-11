@@ -108,3 +108,5 @@ Python Bot
             "your email address correctly\n."
         )
         return False
+
+    return True
