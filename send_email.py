@@ -1,9 +1,12 @@
 import ssl
 import smtplib
 from environs import Env
+from time import sleep
 from email.mime.base import MIMEBase
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from pyisemail import is_email
+
 
 # Create an Env object
 env = Env()
@@ -13,6 +16,21 @@ host = env("HOST")
 port = env("PORT_GMAIL")
 sender_email = env("EMAIL_ADDRESS")
 password = env("PASSWORD")
+
+
+def validate_email_address(email_address):
+    """
+    This function validates the email address
+    passed to it.
+    """
+
+    try:
+        is_a_valid_email = is_email(email_address, check_dns=True)
+        return is_a_valid_email
+
+    except ValueError as err:
+        print(str(err))
+        return False
 
 
 def send_email(receiver_email):
@@ -58,22 +76,35 @@ Python Bot
 
     message.attach(part)
 
-    try:
-        with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
-            server.login(sender_email, password=password)
-            print("\nOne moment, please.")
-            server.sendmail(
-                to_addrs=receiver_email,
-                from_addr=sender_email,
-                msg=message.as_string(),
-            )
-            server.quit()
+    is_a_valid_email = validate_email_address(receiver_email)
 
-    except Exception:
+    if is_a_valid_email:
+
+        try:
+            with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
+                server.login(sender_email, password=password)
+                server.sendmail(
+                    to_addrs=receiver_email,
+                    from_addr=sender_email,
+                    msg=message.as_string(),
+                )
+                print("\nOne moment, please.")
+                sleep(3)
+                print("\nSending email...\n")
+                sleep(5)
+                server.quit()
+
+        except Exception:
+            print(
+                "\nCouldn't connect. There may be a problem with "
+                "the server. Please try again later."
+            )
+            return False
+
+    else:
+        sleep(3)
         print(
-            "\nCouldn't connect. There may be a problem with "
-            "the server. Please try again later."
+            "Sorry. It appears that you have not entered "
+            "your email address correctly\n."
         )
         return False
-
-    return True
