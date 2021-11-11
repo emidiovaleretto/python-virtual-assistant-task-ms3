@@ -266,25 +266,19 @@ def end_chat():
 
     answer = get_str_input()[0]
 
-    if answer == "y":
+    if answer != "y":
+        chatbot_message("Sorry. I didn't get what you mean.")
+
+    else:
         chatbot_message("Great! Enter your email address below:\n")
         email = log(input(">> "), "User")
-        is_a_valid_email = send_email(email)
 
-        if is_a_valid_email:
+        sent = send_email(email)
 
-            sleep(3)
-            print("\nSending email...\n")
-            sleep(5)
+        if sent:
             chatbot_message(
                 "OK, all done! Check your inbox for an email "
                 "with the LiveChat transcript.\n"
-            )
-
-        else:
-            chatbot_message(
-                "Sorry. It appears that you have not entered "
-                "your email address correctly\n."
             )
 
     chatbot_message(
