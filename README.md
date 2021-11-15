@@ -59,7 +59,7 @@ The purpose of this is to put into practice the knowledge about the Python langu
 
 To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
 
-![Main loop flow chart](documents\readme-images\main_loop_chart.png)
+![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
 
 ### Forking the GitHub Repository and Running this Project Locally
 
