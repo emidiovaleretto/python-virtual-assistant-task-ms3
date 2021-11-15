@@ -8,16 +8,25 @@ The live link can be found <a href="https://virtual-assistant-task-py.herokuapp.
 
 Python Virtual Assistant Task is a Python terminal application, which runs on a mock terminal on Heroku.
 
-## Contents
+## Table of Contents
 
 - [**Python Virtual Assistant Task**](#python-virtual-assistant-task)
   - [How may I assist you today?](#how-may-i-assist-you-today)
-  - [Contents](#contents)
+  - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Design](#design)
     - [Main loop flowchart:](#main-loop-flowchart)
+  - [Technologies Used](#technologies-used)
+    - [Languages](#languages)
+  - [Tools](#tools)
+  - [Testing](#testing)
+    - [Validation of Code Testing](#validation-of-code-testing)
+      - [Python](#python)
+  - [Deployment](#deployment)
     - [Forking the GitHub Repository and Running this Project Locally](#forking-the-github-repository-and-running-this-project-locally)
     - [Setting up heroku](#setting-up-heroku)
+  - [Credits](#credits)
+    - [Media](#media)
     - [Acknowledgements](#acknowledgements)
   - [Author](#author)
 
@@ -32,7 +41,7 @@ The goal of this Python application is to create a virtual assistant that can be
  - Remove a task from the list of tasks.
  - Restore a task from the list of removed tasks.
 
-The purpose of this is to put into practice the knowledge about the Python language acquired during the course, such as:
+The purpose of this project is to put into practice the knowledge about the Python language acquired during the course, such as:
 
  - The use of the Python Language.
  - The use of the Python Virtual Environment.
@@ -60,6 +69,33 @@ The purpose of this is to put into practice the knowledge about the Python langu
 To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
 
 ![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
+
+## Technologies Used
+
+### Languages
+
+1. **Python:** Used to develop all application logic. - [python.org/](https://www.python.org/)
+
+## Tools
+
+1. **Gitpod:** An online IDE also used for creating & saving code that runs in a browser, it does not have to be installed on your PC - 
+https://www.gitpod.io/
+
+2. **Git:** A version control system for tracking changes in source code during software development - https://git-scm.com/
+
+3. **Github:** A company that provides hosting for software development version control using Git. It is a subsidiary of Microsoft - https://github.com/
+
+[Back to top ⇧](#table-of-contents)
+
+## Testing
+
+### Validation of Code Testing
+
+#### Python
+
+ - Application tested using [PEP8 Online Check](http://pep8online.com/) PEP8 Online Check.
+
+## Deployment
 
 ### Forking the GitHub Repository and Running this Project Locally
 
@@ -97,6 +133,18 @@ To set up heroku you must:
   16. To deploy, scroll down and click the 'Deploy Branch' button.
   17. Heroku will notify you that the app was successfully deployed with a button to view the app.
   18. If you want to rebuild your app automatically you can also select the 'Enable Automatic Deploys' button which will then rebuild the app every time you push any changes.
+
+-----
+
+## Credits
+
+### Media
+
+- [Table of contents](https://ecotrust-canada.github.io/markdown-toc/)
+
+- [Code Institute](https://codeinstitute.net/)
+
+- [Lucid Chart](https://lucidchart.com/)
 
 ### Acknowledgements
 
