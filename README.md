@@ -13,10 +13,43 @@ Python Virtual Assistant Task is a Python terminal application, which runs on a 
 - [**Python Virtual Assistant Task**](#python-virtual-assistant-task)
   - [How may I assist you today?](#how-may-i-assist-you-today)
   - [Contents](#contents)
+  - [Introduction](#introduction)
     - [Forking the GitHub Repository and Running this Project Locally](#forking-the-github-repository-and-running-this-project-locally)
     - [Setting up heroku](#setting-up-heroku)
     - [Acknowledgements](#acknowledgements)
   - [Author](#author)
+
+## Introduction
+
+This project was created as part of the Full Stack Software Development course offered by Code Institute.
+
+The goal of this Python application is to create a virtual assistant that can be used to perform tasks from the command line. Basically, the virtual assistant will be able to perform tasks like:
+
+ - Add a new task to the list of tasks.
+ - List all the tasks in the list.
+ - Remove a task from the list of tasks.
+ - Restore a task from the list of removed tasks.
+
+The purpose of this is to put into practice the knowledge about the Python language acquired during the course, such as:
+
+ - The use of the Python Language.
+ - The use of the Python Virtual Environment.
+ - The use of the Python in the Terminal.
+ - Creating of variables and assign a value to them.
+ - Data Structures.
+   - Tuples.
+   - Lists.
+   - Dictionaries.
+   - Sets.
+ - Decision Structures.
+   - If/Else statements.
+ - Repetition Structures.
+   - For loop.
+   - While loop.
+ - Functions.
+ - The use of the Python Libraries.
+ - 
+
 
 
 ### Forking the GitHub Repository and Running this Project Locally
