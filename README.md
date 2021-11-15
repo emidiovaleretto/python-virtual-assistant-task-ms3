@@ -14,6 +14,8 @@ Python Virtual Assistant Task is a Python terminal application, which runs on a 
   - [How may I assist you today?](#how-may-i-assist-you-today)
   - [Contents](#contents)
   - [Introduction](#introduction)
+  - [Design](#design)
+    - [Main loop flowchart:](#main-loop-flowchart)
     - [Forking the GitHub Repository and Running this Project Locally](#forking-the-github-repository-and-running-this-project-locally)
     - [Setting up heroku](#setting-up-heroku)
     - [Acknowledgements](#acknowledgements)
@@ -48,9 +50,16 @@ The purpose of this is to put into practice the knowledge about the Python langu
    - While loop.
  - Functions.
  - The use of the Python Libraries.
- - 
+ - and many others.
 
 
+## Design
+
+### Main loop flowchart:
+
+To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
+
+![Main loop flow chart](documents\readme-images\main_loop_chart.png)
 
 ### Forking the GitHub Repository and Running this Project Locally
 
