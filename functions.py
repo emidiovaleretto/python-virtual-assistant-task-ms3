@@ -47,7 +47,8 @@ def greetings():
     """
     chosen_name = choose_name_randomly()
     chatbot_message(
-        f"Hello, my name is {chosen_name}. It's nice to speak with you."
+        f"Hello, I'm {chosen_name}, your digital assistant."
+        "\nIt's nice to speak with you."
         "\nMay I please have your name?"
     )
     username = get_str_input().title()
@@ -266,10 +267,7 @@ def end_chat():
 
     answer = get_str_input()[0]
 
-    if answer != "y":
-        chatbot_message("Sorry. I didn't get what you mean.")
-
-    else:
+    if answer == "y":
         chatbot_message("Great! Enter your email address below:\n")
         email = log(input(">> "), "User")
 
@@ -305,7 +303,7 @@ def ask_to_add_task():
         add_new_task()
 
     else:
-        chatbot_message("Okay, let me show you some other options.\n")
+        chatbot_message("Okay, taking you back to the main menu.\n")
         # then loop goes back to the main thread (print_menu)
 
 
