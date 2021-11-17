@@ -6,7 +6,7 @@
 
 The live link can be found <a href="https://virtual-assistant-task-py.herokuapp.com/" target="_blank" rel="noopener">here</a>.
 
-Python Virtual Assistant Task is a Python terminal application, which runs on a mock terminal on Heroku.
+This project was created as part of the Full Stack Software Development course offered by Code Institute.
 
 ## Table of Contents
 
@@ -32,7 +32,7 @@ Python Virtual Assistant Task is a Python terminal application, which runs on a 
 
 ## Introduction
 
-This project was created as part of the Full Stack Software Development course offered by Code Institute.
+Python Virtual Assistant Task is a Python terminal application, which runs on a mock terminal on Heroku.
 
 The goal of this Python application is to create a virtual assistant that can be used to perform tasks from the command line. Basically, the virtual assistant will be able to perform tasks like:
 
@@ -69,6 +69,8 @@ The purpose of this project is to put into practice the knowledge about the Pyth
 To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
 
 ![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
+
+![Start Bot flow chart](./documents/readme-images/start_bot_chart.jpeg)
 
 ## Technologies Used
 
@@ -115,7 +117,7 @@ repository by using the following steps...
 
 To set up heroku you must:
 
-  1. If your requirements.txt file has not changed you can skip this step. Otherwise, in your terminal type 'pip3 freeze > requirements.txt' then save and push the changes.
+  1. If your requirements.txt file has not changed you can skip this step. Otherwise, in your terminal type 'pip freeze > requirements.txt' then save and push the changes.
   2. Go to Heroku.com and sign in or create a free account.
   3. From the heroku dashboard click the 'Create new app' button.
   4. Name the app something unique and choose what region you are in then click 'Create app'.
@@ -145,6 +147,8 @@ To set up heroku you must:
 - [Code Institute](https://codeinstitute.net/)
 
 - [Lucid Chart](https://lucidchart.com/)
+
+- The code to send email is credited to [Real Python](https://realpython.com/python-send-email/)
 
 ### Acknowledgements
 
