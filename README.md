@@ -15,7 +15,9 @@ This project was created as part of the Full Stack Software Development course o
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
   - [Design](#design)
-    - [Main loop flowchart:](#main-loop-flowchart)
+    - [Flowchart](#flowchart)
+      - [Main loop flowchart:](#main-loop-flowchart)
+      - [Start Bot loop flowchart:](#start-bot-loop-flowchart)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
   - [Tools](#tools)
@@ -64,13 +66,17 @@ The purpose of this project is to put into practice the knowledge about the Pyth
 
 ## Design
 
-### Main loop flowchart:
+### Flowchart
 
 To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
 
+#### Main loop flowchart:
+
 ![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
 
-![Start Bot flow chart](./documents/readme-images/start_bot_chart.jpeg)
+#### Start Bot loop flowchart:
+
+![Start Bot flow chart](./documents/readme-images/start_bot_chart.png)
 
 ## Technologies Used
 
