@@ -264,12 +264,18 @@ def end_chat():
         "I'm glad I was able to get that sorted out for you."
         "\nBefore you go, would you like to get a copy of this chat? [y/N]"
     )
+    user_answer = get_str_input()[0]
 
-    answer = get_str_input()[0]
+    while user_answer not in ["y", "n"]:
 
-    if answer == "y":
-        chatbot_message("Great! Enter your email address below:\n")
-        email = log(input(">> "), "User")
+        chatbot_message(
+            "Sorry. I didn't understand what you said.\nCan you please say it again?"
+        )
+        user_answer = get_str_input()[0]
+
+    if user_answer == "y":
+        chatbot_message("Great! Enter your email address below:")
+        email = log(input("\n>> "), "User")
 
         sent = send_email(email)
 

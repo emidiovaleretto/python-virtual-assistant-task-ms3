@@ -105,7 +105,7 @@ Python Bot
         sleep(3)
         print(
             "Sorry. It appears that you have not entered "
-            "your email address correctly\n."
+            "your email address correctly.\n"
         )
         return False
 
