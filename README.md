@@ -143,7 +143,7 @@ To set up heroku you must:
   3. From the heroku dashboard click the 'Create new app' button.
   4. Name the app something unique and choose what region you are in then click 'Create app'.
   5. Go to the settings tab and find the Config Vars section. Click 'Reveal Config Vars'.
-  6. If your project does not use a creds.json file then skip this step. Otherwise, in the field for KEY enter the value CREDS in all capitals. In the field for VALUE copy and paste the entire contents of your creds.json file from your project. Then click 'Add'.
+  6. For this project, you required to add a environment variable to connect to SMTP server from GMAIL. In the field KEY, enter PORT_GMAIL in all capitals, then for VALUE enter 465. (**Note that you must differentiate between PORT and PORT_GMAIL. Otherwise, your deployment may fail**) Then click 'Add'.
   7. In the field for KEY enter PORT in all capitals, then in the field for VALUE enter 8000. Then click 'Add'.
   8. Scroll down to the Buildpacks section and click 'Add buildpack'.
   9. Click Python then save changes.
