@@ -84,7 +84,7 @@ Python Bot
 
         try:
             # try to create a secure SSL context
-            with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
+            with smtplib.SMTP_SSL(host, port, context=context) as server:
                 server.login(sender_email, password=password)
                 server.sendmail(
                     to_addrs=receiver_email,
