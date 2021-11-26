@@ -213,6 +213,8 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
   ![Feature13](./documents/readme-images/feature13.png)
 
+  ![Email Screenshot](./documents/readme-images/email.png)
+
 
 [Back to top ⇧](#table-of-contents)
 
