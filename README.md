@@ -20,6 +20,8 @@ This project was created as part of the Full Stack Software Development course o
     - [Key Project Goals](#key-project-goals)
   - [Design](#design)
     - [Flowchart](#flowchart)
+    - [Bugs and Fixes Implemented after Testing](#bugs-and-fixes-implemented-after-testing)
+      - [Bugs:](#bugs)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
   - [Tools](#tools)
@@ -92,6 +94,14 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 2. #### _Start Bot loop flowchart_
 
 ![Start Bot flow chart](./documents/readme-images/start_bot_chart.png)
+
+### Bugs and Fixes Implemented after Testing
+
+#### Bugs: 
+
+1. During the deployment of the application, I noticed that the program was not running properly. The email was not being sent to the user, as expected. After reading [Heroku's documentation](https://devcenter.heroku.com/articles/config-vars), I could see that in addition to creating an environment variable that could improve compatibility with various Python libraries (`PORT=8000`), I had to create a new environment variable that communicates with the email service (in this case, the SMTP server from Gmail - `PORT_GMAIL=465`). After that, the program was running properly and the email was being sent to the user.
+
+![Config Vars](./documents/readme-images/config_vars.png)
 
 ## Technologies Used
 
