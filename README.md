@@ -23,6 +23,10 @@ This project was created as part of the Full Stack Software Development course o
     - [Design Process](#design-process)
   - [Features](#features)
     - [Screenshots](#screenshots)
+  - [User Stories](#user-stories)
+    - [Target Audience](#target-audience)
+    - [As a Site User I want to...](#as-a-site-user-i-want-to)
+    - [As a Developer I want to...](#as-a-developer-i-want-to)
     - [Bugs and Fixes Implemented after Testing](#bugs-and-fixes-implemented-after-testing)
       - [Bugs:](#bugs)
   - [Technologies Used](#technologies-used)
@@ -209,6 +213,31 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 -----
 
+## User Stories
+
+### Target Audience
+
+1. My target audience is those people who wish to use an application to perform tasks.
+
+### As a Site User I want to...
+
+1. Be able to add a new task, If I wish to.
+2. Be able to view all the tasks I have added so far.
+3. Be able to delete a task that has already been completed.
+4. Be able to restore a task that has already been deleted by mistake.
+5. Receive by email a LiveChat transcript of the conversation with the virtual assistant.
+
+### As a Developer I want to...
+
+1. As I develop, I want all the features to be working as expected.
+2. I want the user to have the best experience throughout the application. 
+3. I want to showcase my skills in Python Programming Language.
+
+[Back to top ⇧](#table-of-contents)
+
+-----
+
+
 ### Bugs and Fixes Implemented after Testing
 
 #### Bugs: 
@@ -237,7 +266,7 @@ https://www.gitpod.io/
 ### Python Libraries
 
   - sys: Used to access the command line arguments.
-  - os: Used to access the operating system.
+  - os: Used to clean the output of the command line.
   - random: Used to choose a random name from a list of agents names, each time the program is run.
   - datetime: Used to get the current date and time.
   - time.sleep: Used to pause the program for a certain amount of time.
