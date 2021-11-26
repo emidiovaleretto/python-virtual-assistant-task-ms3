@@ -20,6 +20,7 @@ This project was created as part of the Full Stack Software Development course o
     - [Key Project Goals](#key-project-goals)
   - [Design](#design)
     - [Flowchart](#flowchart)
+    - [Design Process](#design-process)
     - [Bugs and Fixes Implemented after Testing](#bugs-and-fixes-implemented-after-testing)
       - [Bugs:](#bugs)
   - [Technologies Used](#technologies-used)
@@ -91,13 +92,80 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
       <details><summary>Click to view the Maiin Loop flowchart</summary>
         <img src="./documents/readme-images/main_loop_chart.png" alt="Main Loop flowchart">
-      </details><br>
+      </details>
 
 2. #### _Start Bot loop flowchart_
 
       <details><summary>Click to view the Start Bot loop flowchart</summary>
         <img src="./documents/readme-images/start_bot_chart.png" alt="Start Bot loop flowchart">
       </details>
+
+### Design Process
+
+1. #### _Strategy Plane_
+   
+   **User Stories**
+   This site is created based on the following user’s expectations in mind.
+
+   * As a first time user I would like to:
+     
+	 * Have a clear information on what the application is about and what it does
+	 * Have an easy understanding about how the application works
+	 * Have clear feedback for my action taken within the application 
+
+	* As a site creator we would like :
+
+	  * To provide a safe and friendly application that anyone can use.	  
+
+2. #### _Scope Plane_
+
+	**Features**
+	
+	 * The application should be user-friendly on all browsers and devices.
+	 * Intuitive and user-friendly site that any people can gain and share experiences.
+	 * The purpose of the application should be clear immediately.
+
+3. #### _Structure Plane_
+
+	**User Story:**
+
+	> - As a first time visitor to the webapp, I would like to immediately understand its purpose.
+
+	**Acceptance Criteria:**
+
+	* Once the program is run, a welcome message is displayed, making it clear to the user the purpose of the application.
+
+	**Implementation:**
+
+	A welcome message is displayed to the user. E.g. "Welcome to the Python Virtual Task Assistant...".
+  Therefore, the user can immediately understand that the purpose of the application is a Virtual Task Assistant.
+
+	**Result:** User Story accomplished.
+
+	**User Stories:**
+
+	> - I would like to be able to choose between adding a task, seeing tasks that have already been added, and deleting a task that has already been completed.
+	> - I would like the application to be friendly and easy to understand and use.
+
+	**Acceptance Criteria:**
+
+	* User can choose to add a task to a list of new tasks.
+	* User can choose to view the list of tasks.
+	* User can choose to delete a task that has already been completed. 
+	* User can choose to restore a task that has already been deleted.
+
+	**Implementation:**
+
+	Upon the program runs, the application will display a menu with the following options:
+
+    1- Add a task
+    2- View tasks
+    3- Delete a task
+    4- Restore a task
+
+  The user can choose to add a task, view the list of tasks, delete a task, or restore a task, as their preference.
+
+	**Result:** User Story accomplished.
 
 -----
 
