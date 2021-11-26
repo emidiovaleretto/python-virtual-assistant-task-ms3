@@ -21,6 +21,8 @@ This project was created as part of the Full Stack Software Development course o
   - [Design](#design)
     - [Flowchart](#flowchart)
     - [Design Process](#design-process)
+  - [Features](#features)
+    - [Screenshots](#screenshots)
     - [Bugs and Fixes Implemented after Testing](#bugs-and-fixes-implemented-after-testing)
       - [Bugs:](#bugs)
   - [Technologies Used](#technologies-used)
@@ -75,6 +77,8 @@ The goal of this Python application is to create a virtual assistant that can be
 
 ### Why a Python Virtual Assistant Task?
 
+We know that nowadays, the vast majority of web applications have a chatbot to help the user in their 
+daily tasks. As a result, the idea of ​​developing a virtual task assistant is quite pertinent.Through this application, the user will be able to count on the help of a virtual agent that will help him according to what is requested. If the user wants to add a new task, the agent will do it. And so on.
 
 ### Key Project Goals
 
@@ -144,7 +148,7 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 	**User Stories:**
 
-	> - I would like to be able to choose between adding a task, seeing tasks that have already been added, and deleting a task that has already been completed.
+	> - I would like to be able to choose between adding a task, seeing tasks that have already been added, deleting a task that has already been completed and restore tasks that have been deleted, if I wish to.
 	> - I would like the application to be friendly and easy to understand and use.
 
 	**Acceptance Criteria:**
@@ -166,6 +170,40 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
   The user can choose to add a task, view the list of tasks, delete a task, or restore a task, as their preference.
 
 	**Result:** User Story accomplished.
+
+## Features
+
+### Screenshots
+<br>
+
+  ![Feature1](./documents/readme-images/feature1.png)
+
+  ![Feature2](./documents/readme-images/feature2.png)
+
+  ![Feature3](./documents/readme-images/feature3.png)
+
+  ![Feature4](./documents/readme-images/feature4.png)
+
+  ![Feature5](./documents/readme-images/feature5.png)
+
+  ![Feature6](./documents/readme-images/feature6.png)
+
+  ![Feature7](./documents/readme-images/feature7.png)
+
+  ![Feature8](./documents/readme-images/feature8.png)
+
+  ![Feature9](./documents/readme-images/feature9.png)
+
+  ![Feature10](./documents/readme-images/feature10.png)
+
+  ![Feature11](./documents/readme-images/feature11.png)
+
+  ![Feature12](./documents/readme-images/feature12.png)
+
+  ![Feature13](./documents/readme-images/feature13.png)
+
+
+[Back to top ⇧](#table-of-contents)
 
 -----
 
