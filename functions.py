@@ -272,7 +272,8 @@ def end_chat():
     while user_answer not in ["y", "n"]:
 
         chatbot_message(
-            "Sorry. I didn't understand what you said.\nCan you please say it again?"
+            "Sorry. I didn't understand what you said."
+            "\nCan you please say it again?"
         )
         user_answer = get_str_input()[0]
 

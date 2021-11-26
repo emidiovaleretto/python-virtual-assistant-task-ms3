@@ -252,6 +252,43 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 ![Config Vars](./documents/readme-images/config_vars.png)
 
+2. When checking the code from `send_email.py` through the PEP8 online checker, an error was displayed, as shown in the image below.
+
+```
+            with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
+
+```
+
+![Bug1](./documents/readme-images/bug1.png)
+
+```
+            with smtplib.SMTP_SSL(host, port, context=context) as server:
+
+```
+
+Error fixed after removing `host` and `port` parameters from the SMTP_SSL function.
+
+1. The same error happens in the function `functions.py`, as shown in the image below.
+
+```
+        chatbot_message(
+            "Sorry. I didn't understand what you said.\nCan you please say it again?"
+        )
+
+```
+
+![Bug2](./documents/readme-images/bug2.png)
+
+Fixed bug when splitting string into two lines.
+
+```
+        chatbot_message(
+            "Sorry. I didn't understand what you said."
+            "\nCan you please say it again?"
+        )
+
+```
+
 -----
 
 ## Technologies Used
