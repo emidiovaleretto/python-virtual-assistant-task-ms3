@@ -22,9 +22,11 @@ def validate_email_address(email_address):
     """
     This function validates the email address
     passed to it.
+    A valid input should be like name@domain.com
     """
 
     try:
+        # Check if the email address is valid using the is_email function
         is_a_valid_email = is_email(email_address, check_dns=True)
         return is_a_valid_email
 
@@ -81,6 +83,7 @@ Python Bot
     if is_a_valid_email:
 
         try:
+            # try to create a secure SSL context
             with smtplib.SMTP_SSL(host=host, port=port, context=context) as server:
                 server.login(sender_email, password=password)
                 server.sendmail(
@@ -95,6 +98,8 @@ Python Bot
                 server.quit()
 
         except Exception:
+            # if the email address is invalid or the server is down
+            # print an error message and exit the program
             print(
                 "\nCouldn't connect. There may be a problem with "
                 "the server. Please try again later."
@@ -102,6 +107,8 @@ Python Bot
             return False
 
     else:
+        # Wait for 3 seconds and then print the error message to the user
+        # if the email address is invalid
         sleep(3)
         print(
             "Sorry. It appears that you have not entered "
