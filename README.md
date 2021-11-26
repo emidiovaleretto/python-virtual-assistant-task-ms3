@@ -89,11 +89,17 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 1. #### _Main loop flowchart_
 
-![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
+      <details><summary>Click to view the Maiin Loop flowchart</summary>
+        <img src="./documents/readme-images/main_loop_chart.png" alt="Main Loop flowchart">
+      </details><br>
 
 2. #### _Start Bot loop flowchart_
 
-![Start Bot flow chart](./documents/readme-images/start_bot_chart.png)
+      <details><summary>Click to view the Start Bot loop flowchart</summary>
+        <img src="./documents/readme-images/start_bot_chart.png" alt="Start Bot loop flowchart">
+      </details>
+
+-----
 
 ### Bugs and Fixes Implemented after Testing
 
@@ -102,6 +108,8 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 1. During the deployment of the application, I noticed that the program was not running properly. The email was not being sent to the user, as expected. After reading [Heroku's documentation](https://devcenter.heroku.com/articles/config-vars), I could see that in addition to creating an environment variable that could improve compatibility with various Python libraries (`PORT=8000`), I had to create a new environment variable that communicates with the email service (in this case, the SMTP server from Gmail - `PORT_GMAIL=465`). After that, the program was running properly and the email was being sent to the user.
 
 ![Config Vars](./documents/readme-images/config_vars.png)
+
+-----
 
 ## Technologies Used
 
@@ -119,6 +127,8 @@ https://www.gitpod.io/
 3. **Github:** A company that provides hosting for software development version control using Git. It is a subsidiary of Microsoft - https://github.com/
 
 [Back to top ⇧](#table-of-contents)
+
+-----
 
 ## Testing
 
