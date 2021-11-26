@@ -14,10 +14,12 @@ This project was created as part of the Full Stack Software Development course o
   - [How may I assist you today?](#how-may-i-assist-you-today)
   - [Table of Contents](#table-of-contents)
   - [Introduction](#introduction)
+  - [UX](#ux)
+    - [Overview](#overview)
+    - [Why a Python Virtual Assistant Task?](#why-a-python-virtual-assistant-task)
+    - [Key Project Goals](#key-project-goals)
   - [Design](#design)
     - [Flowchart](#flowchart)
-      - [Main loop flowchart:](#main-loop-flowchart)
-      - [Start Bot loop flowchart:](#start-bot-loop-flowchart)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
   - [Tools](#tools)
@@ -33,15 +35,6 @@ This project was created as part of the Full Stack Software Development course o
   - [Author](#author)
 
 ## Introduction
-
-Python Virtual Assistant Task is a Python terminal application, which runs on a mock terminal on Heroku.
-
-The goal of this Python application is to create a virtual assistant that can be used to perform tasks from the command line. Basically, the virtual assistant will be able to perform tasks like:
-
- - Add a new task to the list of tasks.
- - List all the tasks in the list.
- - Remove a task from the list of tasks.
- - Restore a task from the list of removed tasks.
 
 The purpose of this project is to put into practice the knowledge about the Python language acquired during the course, such as:
 
@@ -63,6 +56,28 @@ The purpose of this project is to put into practice the knowledge about the Pyth
  - The use of the Python Libraries.
  - and many others.
 
+## UX
+
+### Overview
+
+Python Virtual Assistant Task is a Python terminal application, which runs on a mock terminal on Heroku.
+
+The goal of this Python application is to create a virtual assistant that can be used to perform tasks from the command line. Basically, the virtual assistant will be able to perform tasks like:
+
+ - Add a new task to the list of tasks.
+ - List all the tasks in the list.
+ - Remove a task from the list of tasks.
+ - Restore a task from the list of removed tasks.
+
+
+### Why a Python Virtual Assistant Task?
+
+
+### Key Project Goals
+
+As a site owner, I would like to provide users an easy and solid backend application.
+
+-----
 
 ## Design
 
@@ -70,11 +85,11 @@ The purpose of this project is to put into practice the knowledge about the Pyth
 
 To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com/) tool.
 
-#### Main loop flowchart:
+1. #### _Main loop flowchart_
 
 ![Main loop flow chart](./documents/readme-images/main_loop_chart.png)
 
-#### Start Bot loop flowchart:
+2. #### _Start Bot loop flowchart_
 
 ![Start Bot flow chart](./documents/readme-images/start_bot_chart.png)
 
