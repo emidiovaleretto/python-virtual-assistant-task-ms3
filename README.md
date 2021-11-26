@@ -179,6 +179,11 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 ## Features
 
+  This is a list of Irish names that I have used in the application. Each time that the program runs, a random name will be chosen from this list.
+  
+  ![Agent Names](./documents/readme-images/names.png) 
+
+
 ### Screenshots
 <br>
 
