@@ -125,10 +125,13 @@ def validate_input(user_input, str_method):
     """
 
     try:
+        # str_method: str.isalpha() or str.isdigit()
+        # depending to the data type specification by the user.
         if not str_method(user_input):
             raise ValueError(f"\n'{user_input}' isn't a valid input.")
 
     except ValueError as err:
+        # Otherwise, a ValueError is raised.
         chatbot_message(f"{err}")
         return False
 
@@ -199,7 +202,7 @@ def view_all_tasks(list):
     else:
         for i, task in enumerate(list):
             i += 1
-            print(f"\t{i} - {task}")
+            print(f"\n\t{i} - {task}")
 
         sleep(1)
 
@@ -280,6 +283,8 @@ def end_chat():
         sent = send_email(email)
 
         if sent:
+            # if email address has been successfully validated
+            # and the email has been sent.
             chatbot_message(
                 "OK, all done! Check your inbox for an email "
                 "with the LiveChat transcript.\n"
