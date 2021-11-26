@@ -28,6 +28,8 @@ This project was created as part of the Full Stack Software Development course o
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
   - [Tools](#tools)
+    - [Python Libraries](#python-libraries)
+    - [Thrid Party Libraries](#thrid-party-libraries)
   - [Testing](#testing)
     - [Validation of Code Testing](#validation-of-code-testing)
       - [Python](#python)
@@ -231,6 +233,24 @@ https://www.gitpod.io/
 2. **Git:** A version control system for tracking changes in source code during software development - https://git-scm.com/
 
 3. **Github:** A company that provides hosting for software development version control using Git. It is a subsidiary of Microsoft - https://github.com/
+
+### Python Libraries
+
+  - sys: Used to access the command line arguments.
+  - os: Used to access the operating system.
+  - random: Used to choose a random name from a list of agents names, each time the program is run.
+  - datetime: Used to get the current date and time.
+  - time.sleep: Used to pause the program for a certain amount of time.
+  - ssl: Used to access the SMTP server from Gmail.
+  - smtplib: Used to send emails from the application.
+  - email.mime.base: Used to create the email message.
+  - email.mime.text: Used to create plain text emails.
+  - email.mime.multipart: Used to create emails with attachments.
+  
+### Thrid Party Libraries
+
+  - environs: Used to access the environment variables.
+  - pyisemail: Used to validate the email address.
 
 [Back to top ⇧](#table-of-contents)
 
