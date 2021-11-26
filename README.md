@@ -31,9 +31,9 @@ This project was created as part of the Full Stack Software Development course o
       - [Bugs:](#bugs)
   - [Technologies Used](#technologies-used)
     - [Languages](#languages)
-  - [Tools](#tools)
     - [Python Libraries](#python-libraries)
     - [Thrid Party Libraries](#thrid-party-libraries)
+  - [Tools](#tools)
   - [Testing](#testing)
     - [Validation of Code Testing](#validation-of-code-testing)
       - [Python](#python)
@@ -237,7 +237,6 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 
 -----
 
-
 ### Bugs and Fixes Implemented after Testing
 
 #### Bugs: 
@@ -253,15 +252,6 @@ To create the flowchart, I have used the [LucidChart](https://www.lucidchart.com
 ### Languages
 
 1. **Python:** Used to develop all application logic. - [python.org/](https://www.python.org/)
-
-## Tools
-
-1. **Gitpod:** An online IDE also used for creating & saving code that runs in a browser, it does not have to be installed on your PC - 
-https://www.gitpod.io/
-
-2. **Git:** A version control system for tracking changes in source code during software development - https://git-scm.com/
-
-3. **Github:** A company that provides hosting for software development version control using Git. It is a subsidiary of Microsoft - https://github.com/
 
 ### Python Libraries
 
@@ -281,6 +271,22 @@ https://www.gitpod.io/
   - environs: Used to access the environment variables.
   - pyisemail: Used to validate the email address.
 
+## Tools
+
+1. **Gitpod:** An online IDE also used for creating & saving code that runs in a browser, it does not have to be installed on your PC - 
+https://www.gitpod.io/
+
+2. **Git:** A version control system for tracking changes in source code during software development - https://git-scm.com/
+
+3. **Github:** A company that provides hosting for software development version control using Git. It is a subsidiary of Microsoft - https://github.com/
+
+4. **VSCode**: A free and open-source text editor for software development - https://code.visualstudio.com/
+
+5. **Heroku**: A cloud-based platform for deploying and managing web applications - https://www.heroku.com/
+
+6. **Gmail**: A web-based email service that allows users to send and receive email - https://www.gmail.com/
+
+
 [Back to top ⇧](#table-of-contents)
 
 -----
@@ -289,9 +295,45 @@ https://www.gitpod.io/
 
 ### Validation of Code Testing
 
+  1. If the user enter a wrong input in the beginning of the program (e.g. entering an empty string or a number instead of a string), the program should not crash.
+        
+      ![Test 1](./documents/readme-images/test1.png)
+
+  2. If the user enters a wrong input in the menu options (e.g. entering a number that is not one of the options), the program should not crash.
+
+      ![Test 2](./documents/readme-images/test2.png)
+
+  3. If the user chooses to view the list of tasks and there is no task to be displayed, the program should not crash.
+
+      ![Test 3](./documents/readme-images/test3.png)
+
+  4. If the user tries to delete a task whose index does not exist, the program should not crash.
+
+      ![Test 4](./documents/readme-images/test4.png)
+
+   - It should work the same way for the restore_task() function.
+
+  5. When the user opts out of the conversation, the agent will ask if he wants to receive a copy of the conversation by email. The user is expected to enter [Y] for Yes or [N] for No. If the user enters any other input than these, the program should not crash.
+
+      ![Test 5](./documents/readme-images/test5.png)
+
+  6. If the user enters a wrong input in the email address field, the program should not crash.
+
+      ![Test 6](./documents/readme-images/test6.png)
+
+      The function validate_email_address() is used to validate the email address. It receives as parameter the email address and check whether the domain used in the email is a valid domain and whether or not it has a valid MX record. It returns True if the email address is valid and False if it is not.
+
+     ** **Please note that a valid response here is not a guarantee that the email exists, merely that is can exist.** **
+
+  7. If for some reason the program cannot connect to the SMTP server, the program should not crash.
+
+      ![Test 7](./documents/readme-images/test7.png)
+
 #### Python
 
  - Application tested using [PEP8 Online Check](http://pep8online.com/) PEP8 Online Check.
+
+  - All code is written in Python 3.10.0
 
 ## Deployment
 
